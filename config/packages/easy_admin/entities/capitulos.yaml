@@ -1,0 +1,37 @@
+easy_admin:
+  entities:
+    Capitulo:
+      class: App\Entity\Backend\Capitulo
+      list:
+        title: "Capitulos"
+        fields:
+          - { property: 'id' , label: 'Id'}
+          - { property: 'programa' , label: 'Programa'}
+          - { property: 'titulo' , label: 'Título', type: 'text'}
+          - { property: 'nroCapitulo' , label: 'Número de Capítulo', type: 'integer'}
+          - { property: 'publicado' , label: 'Publicado', type: 'toggle'}
+          - { property: 'fechaCreacion', label: 'Creación', type: 'date' }
+          - { property: 'fechaModificacion', label: 'Modificación', type: 'date'}
+      form:  # <-- 'form' is applied to both 'new' and 'edit' views
+        title: 'Crear un Capítulo'
+        fields:
+          - { type: 'group', css_class: 'col-sm-12', label: 'Información Principal' }
+          - { property: 'publicado' , label: 'Publicado' , css_class: 'col-md-6'}
+          - { property: 'programa' , label: 'Programa', css_class: 'col-md-6'}
+          - { property: 'titulo' , label: 'Título', type: 'text', css_class: 'col-md-6'}
+          - { property: 'nroCapitulo' , label: 'Número de Capítulo', type: 'integer', css_class: 'col-md-6'}
+          - { type: 'group', css_class: 'col-sm-12', label: 'Descripción del Capitulo' }
+          - { property: 'video' , label: 'URL del video'}
+        show:
+          fields:
+            - { property: 'id' , label: 'Id'}
+            - { property: 'publicado' , label: 'Publicado', type: 'toggle', css_class: 'col-md-12'}
+            - { property: 'programa' , label: 'Programa', css_class: 'col-md-12'}
+            - { property: 'titulo' , label: 'Título', type: 'text', css_class: 'col-md-12'}
+            - { property: 'nroCapitulo' , label: 'Número de Capítulo', type: 'integer', css_class: 'col-md-12'}
+            - { property: 'video' , label: 'Video', type: 'url', css_class: 'col-md-12'}
+            - { property: 'fechaCreacion', label: 'Creación', type: 'date', css_class: 'col-md-12' }
+            - { property: 'fechaModificacion', label: 'Modificación', type: 'date', css_class: 'col-md-12'}
+
+        edit:
+          title: 'Editar Capítulo'

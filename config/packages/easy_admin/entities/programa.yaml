@@ -1,0 +1,40 @@
+easy_admin:
+  entities:
+    Programa:
+      class: App\Entity\Backend\Programa
+      list:
+        title: "Programa"
+        fields:
+          - { property: 'id' , label: 'Id'}
+          - { property: 'horario' , label: 'Horario'}
+          - { property: 'titulo' , label: 'Título', type: 'text',css_class: 'col-md-6'}
+          - { property: 'imagen', type: 'image', base_path: '%app.path.programa_images%' }
+          - { property: 'orden' , label: 'Orden', css_class: 'col-md-1' }
+          - { property: 'activo' , label: 'Activo', type: 'toggle'}
+          - { property: 'fechaCreacion', label: 'Creación', type: 'date' }
+          - { property: 'fechaModificacion', label: 'Modificación', type: 'date'}
+      form:  # <-- 'form' is applied to both 'new' and 'edit' views
+        title: 'Crear un Programa'
+        fields:
+          - { type: 'group', css_class: 'col-sm-12', label: 'Información Principal' }
+          - { property: 'activo' , label: 'Activo', css_class: 'col-md-6'}
+          - { property: 'orden' , label: 'Orden', css_class: 'col-md-6'}
+          - { property: 'titulo' , label: 'Título', type: 'text', css_class: 'col-md-6'}
+          - { property: 'horario' , label: 'Horario', css_class: 'col-md-6'}
+          - { property: 'resumen',label: 'Resumen',  css_class: 'col-md-12'}
+        # - { property: 'descripcion',label: 'Descripción', type: "ckeditor", css_class: 'col-md-12'}
+          - { property: 'imageFile', type: 'vich_image' , label: 'Imagen del Programa', css_class: 'col-md-12'}
+      show:
+        fields:
+          - { property: 'id' , label: 'Id'}
+          - { property: 'horario' , label: 'Horario', css_class: 'col-md-12'}
+          - { property: 'titulo' , label: 'Título', type: 'text', css_class: 'col-md-12'}
+          - { property: 'orden' , label: 'Orden', css_class: 'col-md-12'}
+          - { property: 'activo' , label: 'Activo', css_class: 'col-md-12', type: 'toggle'}
+          - { property: 'resumen',label: 'Resumen', css_class: 'col-md-12'}
+          - {  property: 'imagen', type: 'image', base_path: '%app.path.programa_images%', css_class: 'col-md-12'}
+          - { property: 'fechaCreacion', label: 'Creación', type: 'date', css_class: 'col-md-12' }
+          - { property: 'fechaModificacion', label: 'Modificación', type: 'date', css_class: 'col-md-12'}
+
+        edit:
+          title: 'Editar Programa'
