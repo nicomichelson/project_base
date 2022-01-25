@@ -1,0 +1,29 @@
+{
+  "name": "project_base",
+  "version": "1.0.0",
+  "description": "proyecto base, se utiliza en proyectos futuros",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "sass": "sass --watch public/scss:build/css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicomichelson/project_base.git"
+  },
+  "keywords": [
+    "SASS",
+    "GULP"
+  ],
+  "author": "NICO MICHELSON",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nicomichelson/project_base/issues"
+  },
+  "homepage": "https://github.com/nicomichelson/project_base#readme",
+  "devDependencies": {
+    "sass": "^1.49.0"
+  }
+}
