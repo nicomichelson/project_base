@@ -7,7 +7,7 @@
     "test": "tests"
   },
   "scripts": {
-    "sass": "sass --watch public/scss:build/css"
+    "sass": "sass --watch src/scss:public/build/css"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,8 @@
   },
   "homepage": "https://github.com/nicomichelson/project_base#readme",
   "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-sass": "^5.1.0",
     "sass": "^1.49.0"
   }
 }
