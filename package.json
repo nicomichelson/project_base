@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/nicomichelson/project_base#readme",
   "devDependencies": {
+    "bootstrap": "^5.1.3",
     "gulp": "^4.0.2",
     "gulp-sass": "^5.1.0",
     "sass": "^1.49.0"
