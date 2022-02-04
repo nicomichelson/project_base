@@ -14,6 +14,15 @@ function css(done){
     done();
 }
 
+function bootstrap(done){
+    
+    src('node_modules/bootstrap/scss/bootstrap.scss')
+        .pipe(sass({outputStyle: 'compressed'}))
+        .pipe(dest('public/build/css'))
+
+    done();
+}
+
 function dev(done){
     watch('src/scss/**/*.scss', css);
     done();
@@ -21,4 +30,5 @@ function dev(done){
 
 exports.tarea = tarea;
 exports.css = css;
+exports.bootstrap = bootstrap;
 exports.dev = dev;
