@@ -3,6 +3,11 @@ easy_admin:
     form_theme:
       - '@EasyAdmin/form/bootstrap_4.html.twig'
       - '@FOSCKEditor/Form/ckeditor_widget.html.twig'
+    assets:
+      css:
+        - '/assets/bs-tags/bootstrap-tagsinput.css'
+      js:
+        - '/assets/bs-tags/bootstrap-tagsinput.js'
     # van assets
     menu:
       - label: 'ChacoTv'
