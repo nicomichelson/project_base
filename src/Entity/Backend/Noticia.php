@@ -3,6 +3,8 @@
 namespace App\Entity\Backend;
 
 use App\Repository\Backend\NoticiaRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -111,6 +113,28 @@ class Noticia
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $principal;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Documento::class, mappedBy="noticia", mappedBy="noticia", orphanRemoval=true, cascade={"persist", "remove"})
+     */
+    private $documentos;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Tag::class, inversedBy="noticias")
+     * @ORM\JoinTable(name="tags_x_noticias",
+     *      joinColumns={@ORM\JoinColumn(name="noticia_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="tag_id", referencedColumnName="id")}
+     *      )
+     */
+    private $tags;
+
+   
+
+    public function __construct()
+    {
+        $this->documentos = new ArrayCollection();
+        $this->tags = new ArrayCollection();
+    }
 
     /**
      * @ORM\PrePersist
@@ -344,6 +368,60 @@ class Noticia
     public function setPrincipal(?string $principal): self
     {
         $this->principal = $principal;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Documento[]
+     */
+    public function getDocumentos(): Collection
+    {
+        return $this->documentos;
+    }
+
+    public function addDocumento(Documento $documento): self
+    {
+        if (!$this->documentos->contains($documento)) {
+            $this->documentos[] = $documento;
+            $documento->setNoticia($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDocumento(Documento $documento): self
+    {
+        if ($this->documentos->removeElement($documento)) {
+            // set the owning side to null (unless already changed)
+            if ($documento->getNoticia() === $this) {
+                $documento->setNoticia(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Tag[]
+     */
+    public function getTags(): Collection
+    {
+        return $this->tags;
+    }
+
+    public function addTag(Tag $tag): self
+    {
+        if (!$this->tags->contains($tag)) {
+            $this->tags[] = $tag;
+        }
+
+        return $this;
+    }
+
+    public function removeTag(Tag $tag): self
+    {
+        $this->tags->removeElement($tag);
 
         return $this;
     }

@@ -13,6 +13,7 @@ easy_admin:
       - label: 'ChacoTv'
       - {label: 'Panel Principal', route: 'admin_dashboard', icon: 'caret-down', default: true }
       - {label: 'Noticias' , entity: 'Noticia', icon: 'indent' }
+      - {label: 'Tag' , entity: 'Tag', icon: 'indent' }
       # - {label: 'Video En Vivo' , entity: 'VideoEnVivo', icon: 'indent' }
       # - {label: 'Programacion' , route: 'new_programming', icon: 'indent' }
       # - {label: 'Banner' , entity: 'Banner', icon: 'indent' }

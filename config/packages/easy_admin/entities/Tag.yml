@@ -1,0 +1,6 @@
+easy_admin:
+    entities:
+        Tag:
+            class: App\Entity\Backend\Tag
+            label: 'Tags'
+            role: ROLE_TAG

@@ -34,7 +34,6 @@ easy_admin:
                     - { type: 'group', css_class: 'col-sm-12', label: "Contenido de la noticia" }
                     - { property: 'principal' , label: 'Principal',css_class: 'col-md-12' ,type: 'choice', type_options: { multiple: false, choices: {  'Imagen': 'Imagen','Video' : 'Video',} }}               
                     - { property: 'urlVideo' , label: 'Video'}
-                    - { property: 'urlVideo' , label: 'Video'}
                     - { property: 'desarrollo', type: "fos_ckeditor",css_class: 'col-md-12'}
                     - { property: 'imageFile', type: 'vich_image', type_options: { allow_delete: false } }
                     - { type: 'group', css_class: 'col-sm-12', label: "Galeria" }
@@ -42,7 +41,7 @@ easy_admin:
                     - { type: 'group', css_class: 'col-sm-12', label: "Audios" }
                     # - { property: 'audioResources' , label: "Audios" ,type: 'collection' ,type_options: { entry_type: '\BackendBundle\Form\AudioResourceType', by_reference: false }}
                     - { type: 'group', css_class: 'col-sm-12', label: "Tags" }
-                    # - { property: 'tags', label: 'Tags'}
+                    - { property: 'tags', label: 'Tags'}
             show:
                 fields:
                     - { property: id, label: 'Nro. de Noticia' ,css_class: 'col-md-12'}
@@ -53,11 +52,11 @@ easy_admin:
                     - { property: 'bajada', label: 'Bajada', css_class: 'col-md-12'}
                     - { property: 'urlVideo' , label: 'Video', type: 'url',css_class: 'col-md-12'}
                     - { property: 'desarrollo', type: "text", css_class: 'col-md-12'}
-                    # - { property: 'imagen', type: 'image', base_path: '%path.imagenesNoticias%', css_class: 'col-md-12' }
-                    - { property: 'fechaCreacion', label: 'Creación', type: 'date', css_class: 'col-md-12' }
-                    - { property: 'fechaModificacion', label: 'Modificación', type: 'date', css_class: 'col-md-12'}
-                    - { property: 'resources' ,label: 'Galeria', template: 'easy_admin\resource_field.html.twig',css_class: 'col-md-12' }
-                    - { property: 'audioResources' ,label: 'Audios', template: 'easy_admin\audioResource_field.html.twig',css_class: 'col-md-12' }
+                    - { property: 'imagen', type: 'image', base_path: '%app.path.noticia_images%', css_class: 'col-md-12' }
+                    # - { property: 'fechaCreacion', label: 'Creación', type: 'date', css_class: 'col-md-12' }
+                    # - { property: 'fechaModificacion', label: 'Modificación', type: 'date', css_class: 'col-md-12'}
+                    # - { property: 'resources' ,label: 'Galeria', template: 'easy_admin\resource_field.html.twig',css_class: 'col-md-12' }
+                    # - { property: 'audioResources' ,label: 'Audios', template: 'easy_admin\audioResource_field.html.twig',css_class: 'col-md-12' }
                     - { property: 'tags', label: 'Tags', css_class: 'col-md-12'}
                     - { property: 'principal', label: 'Principal',css_class: 'col-md-12'}
             edit:
