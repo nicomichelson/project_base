@@ -13,8 +13,8 @@ easy_admin:
                     - { property: 'publicado' , label: 'Publicado', type: 'toggle'}
                     - { property: 'destacada' , label: 'Destacada'}
                     - { property: 'titulo' , label: 'Título', type: 'text'}
-                    # - { property: 'imagen', type: 'image', base_path: '%path.imagenesNoticias%' }
-                    - { property: 'fechaCreacion', label: 'Creación', type: 'date' }
+                    - { property: 'imagen', label: 'Imagen', type: 'image', base_path: '%app.path.noticia_images%' }
+                    - { property: 'created_at', label: 'Creación', type: 'date' }
                     - { property: 'fechaModificacion', label: 'Modificación', type: 'date'}
             form:  # <-- 'form' is applied to both 'new' and 'edit' views
                 title: 'Crear una Noticia'
@@ -36,7 +36,7 @@ easy_admin:
                     - { property: 'urlVideo' , label: 'Video'}
                     - { property: 'urlVideo' , label: 'Video'}
                     - { property: 'desarrollo', type: "fos_ckeditor",css_class: 'col-md-12'}
-                    # - { property: 'imageFile', type: 'vich_image' , label: 'Imagen Principal'}
+                    - { property: 'imageFile', type: 'vich_image', type_options: { allow_delete: false } }
                     - { type: 'group', css_class: 'col-sm-12', label: "Galeria" }
                     # - { property: 'resources' , label: "Galeria de imagenes" ,type: 'collection' ,type_options: { entry_type: '\BackendBundle\Form\ResourceType', by_reference: false }}
                     - { type: 'group', css_class: 'col-sm-12', label: "Audios" }

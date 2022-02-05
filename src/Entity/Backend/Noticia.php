@@ -3,10 +3,15 @@
 namespace App\Entity\Backend;
 
 use App\Repository\Backend\NoticiaRepository;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=NoticiaRepository::class)
+ * @Vich\Uploadable
+ * @ORM\HasLifecycleCallbacks()
  */
 class Noticia
 {
@@ -21,12 +26,7 @@ class Noticia
      * @ORM\Column(type="boolean", nullable=true)
      */
     private $publicado;
-
-    /**
-     * @ORM\Column(type="datetime", nullable=true)
-     */
-    private $created_at;
-
+   
     /**
      * @ORM\Column(type="datetime", nullable=true)
      */
@@ -51,14 +51,17 @@ class Noticia
      * @ORM\Column(type="text")
      */
     private $desarrollo;
-
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $created_at;
     /**
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $update_at;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", nullable=true)
      */
     private $mostrar_titulo;
 
@@ -76,6 +79,18 @@ class Noticia
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $imagen;
+    
+    /**
+     * @Vich\UploadableField(mapping="noticia_images", fileNameProperty="imagen")
+     *
+     * @var File|null
+     * 
+     * @Assert\Image(
+     *     maxSize = "20M",
+     *     mimeTypes={"image/jpeg", "image/png","image/gif"}
+     * )
+     */
+    private $imageFile;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -96,6 +111,14 @@ class Noticia
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $principal;
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function setCreatedAtValue()
+    {
+        $this->created_at = new \DateTime();
+    }
 
     public function getId(): ?int
     {
@@ -118,7 +141,7 @@ class Noticia
     {
         return $this->created_at;
     }
-
+    
     public function setCreatedAt(?\DateTimeInterface $created_at): self
     {
         $this->created_at = $created_at;
@@ -232,6 +255,37 @@ class Noticia
         $this->mostrar_volanta = $mostrar_volanta;
 
         return $this;
+    }
+
+     /**
+     * If manually uploading a file (i.e. not using Symfony Form) ensure an instance
+     * of 'UploadedFile' is injected into this setter to trigger the  update. If this
+     * bundle's configuration parameter 'inject_on_load' is set to 'true' this setter
+     * must be able to accept an instance of 'File' as the bundle will inject one here
+     * during Doctrine hydration.
+     *
+     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile $image
+     *
+     * @return Product
+     */
+    public function setImageFile(File $image = null)
+    {
+        $this->imageFile = $image;
+
+        if ($image) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->updated_at = new \DateTimeImmutable();
+        }
+
+        return $this;
+    }
+   /**
+     * @return File|null
+     */
+    public function getImageFile()
+    {
+        return $this->imageFile;
     }
 
     public function getImagen(): ?string
