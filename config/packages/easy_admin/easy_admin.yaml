@@ -1,9 +1,5 @@
 easy_admin:
   site_name: '<div><img src="/images/logo_chacotv.png" /><img style="max-height:30px; max-width:150px;" src="/images/logo_ecom.png" /></div>'
-  design:
-    form_theme:
-      - "@EasyAdmin/form/bootstrap_4.html.twig"
-      # - "@FOSCKEditor/Form/ckeditor_widget.html.twig"
   list:
     actions:
       - { name: 'show', icon: 'search', label: false }

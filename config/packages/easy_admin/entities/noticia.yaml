@@ -1,0 +1,64 @@
+easy_admin:
+    entities:
+        Noticia:
+            class: App\Entity\Backend\Noticia
+            label: 'Noticia'
+            role: ROLE_NOTICIA
+            # role_prefix: ROLE_PAGINA
+            # help: 'Global message displayed in all views'
+            list:
+                title: "Noticia"
+                fields:
+                    - id
+                    - { property: 'publicado' , label: 'Publicado', type: 'toggle'}
+                    - { property: 'destacada' , label: 'Destacada'}
+                    - { property: 'titulo' , label: 'Título', type: 'text'}
+                    # - { property: 'imagen', type: 'image', base_path: '%path.imagenesNoticias%' }
+                    - { property: 'fechaCreacion', label: 'Creación', type: 'date' }
+                    - { property: 'fechaModificacion', label: 'Modificación', type: 'date'}
+            form:  # <-- 'form' is applied to both 'new' and 'edit' views
+                title: 'Crear una Noticia'
+                fields: 
+                    - { type: 'group', css_class: 'col-sm-12', label: 'Encabezado' }
+                    - { property: publicado, css_class: 'col-md-4'}
+                    - { property: 'fechaPublicacion' , label: 'Fecha de Publicación', help: '"Publicado" debe estar activado o no se visualizara llegada la fecha'}
+                    - { type: 'divider' }
+                    - { property: 'destacada' , label: 'Principal',css_class: 'col-md-4', ,type: 'choice', 
+                        type_options: { placeholder: 'Noticia Nornal', empty_data: 'Normal', expanded: true, multiple: false, choices: {  'Destacada': 'Destacada','Ahora' : 'Ahora',} }}
+                    - { type: 'divider' }
+                    - { property: 'color' , label: 'Color', type: 'Symfony\Component\Form\Extension\Core\Type\ColorType' ,css_class: 'col-md-5'}
+                    - { type: 'divider' }                   
+                    - { property: 'titulo',label: 'Título', css_class: 'col-md-5'}
+                    - { type: 'divider' }
+                    - { property: bajada,label: 'Bajada', css_class: 'col-md-5'}
+                    - { type: 'group', css_class: 'col-sm-12', label: "Contenido de la noticia" }
+                    - { property: 'principal' , label: 'Principal',css_class: 'col-md-12' ,type: 'choice', type_options: { multiple: false, choices: {  'Imagen': 'Imagen','Video' : 'Video',} }}               
+                    - { property: 'urlVideo' , label: 'Video'}
+                    - { property: 'urlVideo' , label: 'Video'}
+                    - { property: 'desarrollo', type: "fos_ckeditor",css_class: 'col-md-12'}
+                    # - { property: 'imageFile', type: 'vich_image' , label: 'Imagen Principal'}
+                    - { type: 'group', css_class: 'col-sm-12', label: "Galeria" }
+                    # - { property: 'resources' , label: "Galeria de imagenes" ,type: 'collection' ,type_options: { entry_type: '\BackendBundle\Form\ResourceType', by_reference: false }}
+                    - { type: 'group', css_class: 'col-sm-12', label: "Audios" }
+                    # - { property: 'audioResources' , label: "Audios" ,type: 'collection' ,type_options: { entry_type: '\BackendBundle\Form\AudioResourceType', by_reference: false }}
+                    - { type: 'group', css_class: 'col-sm-12', label: "Tags" }
+                    # - { property: 'tags', label: 'Tags'}
+            show:
+                fields:
+                    - { property: id, label: 'Nro. de Noticia' ,css_class: 'col-md-12'}
+                    - { property: 'publicado' , label: 'Publicado', css_class: 'col-md-12'}
+                    - { property: 'destacada' , label: 'Destacada',css_class: 'col-md-12'}
+                    - { property: 'color' , label: 'Color', type: 'string' ,css_class: 'col-md-12'}
+                    - { property: 'titulo', label: 'Título' , css_class: 'col-md-12 '}
+                    - { property: 'bajada', label: 'Bajada', css_class: 'col-md-12'}
+                    - { property: 'urlVideo' , label: 'Video', type: 'url',css_class: 'col-md-12'}
+                    - { property: 'desarrollo', type: "text", css_class: 'col-md-12'}
+                    # - { property: 'imagen', type: 'image', base_path: '%path.imagenesNoticias%', css_class: 'col-md-12' }
+                    - { property: 'fechaCreacion', label: 'Creación', type: 'date', css_class: 'col-md-12' }
+                    - { property: 'fechaModificacion', label: 'Modificación', type: 'date', css_class: 'col-md-12'}
+                    - { property: 'resources' ,label: 'Galeria', template: 'easy_admin\resource_field.html.twig',css_class: 'col-md-12' }
+                    - { property: 'audioResources' ,label: 'Audios', template: 'easy_admin\audioResource_field.html.twig',css_class: 'col-md-12' }
+                    - { property: 'tags', label: 'Tags', css_class: 'col-md-12'}
+                    - { property: 'principal', label: 'Principal',css_class: 'col-md-12'}
+            edit:
+                title: 'Editar Noticia'
