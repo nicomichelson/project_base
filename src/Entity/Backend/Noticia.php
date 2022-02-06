@@ -128,6 +128,11 @@ class Noticia
      */
     private $tags;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $tipo_noticia;
+
    
 
     public function __construct()
@@ -422,6 +427,18 @@ class Noticia
     public function removeTag(Tag $tag): self
     {
         $this->tags->removeElement($tag);
+
+        return $this;
+    }
+
+    public function getTipoNoticia(): ?string
+    {
+        return $this->tipo_noticia;
+    }
+
+    public function setTipoNoticia(string $tipo_noticia): self
+    {
+        $this->tipo_noticia = $tipo_noticia;
 
         return $this;
     }

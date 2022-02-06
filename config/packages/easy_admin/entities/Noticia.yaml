@@ -11,7 +11,7 @@ easy_admin:
                 fields:
                     - id
                     - { property: 'publicado' , label: 'Publicado', type: 'toggle'}
-                    - { property: 'destacada' , label: 'Destacada'}
+                    - { property: 'tipo_noticia' , label: 'Tipo de Noticia'}
                     - { property: 'titulo' , label: 'Título', type: 'text'}
                     - { property: 'imagen', label: 'Imagen', type: 'image', base_path: '%app.path.noticia_images%' }
                     - { property: 'created_at', label: 'Creación', type: 'date' }
@@ -23,8 +23,8 @@ easy_admin:
                     - { property: publicado, css_class: 'col-md-4'}
                     - { property: 'fechaPublicacion' , label: 'Fecha de Publicación', help: '"Publicado" debe estar activado o no se visualizara llegada la fecha'}
                     - { type: 'divider' }
-                    - { property: 'destacada' , label: 'Principal',css_class: 'col-md-4', ,type: 'choice', 
-                        type_options: { placeholder: 'Noticia Nornal', empty_data: 'Normal', expanded: true, multiple: false, choices: {  'Destacada': 'Destacada','Ahora' : 'Ahora',} }}
+                    - { property: 'tipo_noticia' , label: 'Tipo de Noticia',css_class: 'col-md-4',type: 'choice',type_options: { placeholder: 'Seleccione tipo de Noticia',  expanded: false, multiple: false, choices: { 'Normal': 'Normal', 'Destacada': 'Destacada','Ahora' : 'Ahora',} }}
+                    # - { property: 'destacada' , label: 'Principal',css_class: 'col-md-4',type: 'choice',type_options: { placeholder: 'Noticia Nornal', empty_data: 'Normal', expanded: true, multiple: false, choices: {  'Destacada': 'Destacada','Ahora' : 'Ahora',} }}
                     - { type: 'divider' }
                     - { property: 'color' , label: 'Color', type: 'Symfony\Component\Form\Extension\Core\Type\ColorType' ,css_class: 'col-md-5'}
                     - { type: 'divider' }                   
