@@ -12,16 +12,17 @@ easy_admin:
                     - id
                     - { property: 'publicado' , label: 'Publicado', type: 'toggle'}
                     - { property: 'tipo_noticia' , label: 'Tipo de Noticia'}
+                    - { property: 'principal' , label: 'Tipo de Contenido'}
                     - { property: 'titulo' , label: 'Título', type: 'text'}
                     - { property: 'imagen', label: 'Imagen', type: 'image', base_path: '%app.path.noticia_images%' }
                     - { property: 'created_at', label: 'Creación', type: 'date' }
-                    - { property: 'fechaModificacion', label: 'Modificación', type: 'date'}
+                    - { property: 'update_at', label: 'Modificación', type: 'date'}
             form:  # <-- 'form' is applied to both 'new' and 'edit' views
                 title: 'Crear una Noticia'
                 fields: 
                     - { type: 'group', css_class: 'col-sm-12', label: 'Encabezado' }
                     - { property: publicado, css_class: 'col-md-4'}
-                    - { property: 'fechaPublicacion' , label: 'Fecha de Publicación', help: '"Publicado" debe estar activado o no se visualizara llegada la fecha'}
+                    - { property: 'fecha_publicacion' , label: 'Fecha de Publicación', help: '"Publicado" debe estar activado o no se visualizara llegada la fecha', type: 'date', type_options: { widget: 'single_text'}}
                     - { type: 'divider' }
                     - { property: 'tipo_noticia' , label: 'Tipo de Noticia',css_class: 'col-md-4',type: 'choice',type_options: { placeholder: 'Seleccione tipo de Noticia',  expanded: false, multiple: false, choices: { 'Normal': 'Normal', 'Destacada': 'Destacada','Ahora' : 'Ahora',} }}
                     # - { property: 'destacada' , label: 'Principal',css_class: 'col-md-4',type: 'choice',type_options: { placeholder: 'Noticia Nornal', empty_data: 'Normal', expanded: true, multiple: false, choices: {  'Destacada': 'Destacada','Ahora' : 'Ahora',} }}
@@ -30,10 +31,10 @@ easy_admin:
                     - { type: 'divider' }                   
                     - { property: 'titulo',label: 'Título', css_class: 'col-md-5'}
                     - { type: 'divider' }
-                    - { property: bajada,label: 'Bajada', css_class: 'col-md-5'}
+                    - { property: bajada,label: 'Bajada', type: "fos_ckeditor", css_class: 'col-md-5'}
                     - { type: 'group', css_class: 'col-sm-12', label: "Contenido de la noticia" }
-                    - { property: 'principal' , label: 'Principal',css_class: 'col-md-12' ,type: 'choice', type_options: { multiple: false, choices: {  'Imagen': 'Imagen','Video' : 'Video',} }}               
-                    - { property: 'urlVideo' , label: 'Video'}
+                    - { property: 'principal' , label: 'Tipo de Contenido',css_class: 'col-md-12' ,type: 'choice', type_options: { placeholder: 'Seleccione tipo de Contenido',multiple: false, choices: {  'Imagen': 'Imagen','Video' : 'Video',} }}               
+                    - { property: 'url_video' , label: 'Video'}
                     - { property: 'desarrollo', type: "fos_ckeditor",css_class: 'col-md-12'}
                     - { property: 'imageFile', type: 'vich_image', type_options: { allow_delete: false } }
                     - { type: 'group', css_class: 'col-sm-12', label: "Galeria" }
