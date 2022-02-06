@@ -3,6 +3,7 @@
 namespace App\Repository\Backend;
 
 use App\Entity\Backend\Noticia;
+use DateTime;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -50,9 +51,13 @@ class NoticiaRepository extends ServiceEntityRepository
 
     public function findNoticiasDestacadas()
     {
+        $fecha_publicacion = date("Y-m-d");
         return $this->createQueryBuilder('n')
             ->andWhere('n.tipo_noticia = :tipo')
+            ->andWhere('n.publicado = TRUE')
+            ->andWhere('n.fecha_publicacion = :fecha_publicacion')
             ->setParameter('tipo', 'Destacada')
+            ->setParameter('fecha_publicacion', $fecha_publicacion)
             ->getQuery()
             ->getResult()
         ;
