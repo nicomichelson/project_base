@@ -47,4 +47,14 @@ class NoticiaRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findNoticiasDestacadas()
+    {
+        return $this->createQueryBuilder('n')
+            ->andWhere('n.tipo_noticia = :tipo')
+            ->setParameter('tipo', 'Destacada')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 }
