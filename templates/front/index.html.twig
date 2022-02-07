@@ -64,7 +64,12 @@
                     </div>
                 </div>
         </section>
-        {{render(controller('App\\Controller\\Front\\MainController::getAllProgramas'))}}
+        <section>
+            {{render(controller('App\\Controller\\Front\\MainController::getAllProgramas'))}}
+        </section>
+        <section class="sectionEspecial">
+            {{render(controller('App\\Controller\\Front\\MainController::getAllSeccionEspecial'))}}
+        </section>
             
     </main>
 {% endblock %}

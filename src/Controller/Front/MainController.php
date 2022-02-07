@@ -42,4 +42,12 @@ class MainController extends AbstractController
             'programas' => $programas,
         ]);
     }
+
+    public function getAllSeccionEspecial()
+    {
+        // $programas = $this->getDoctrine()->getRepository(Programa::class)->findBy(['activo' => TRUE]);
+        return $this->render('front/_seccion_especial.html.twig',[
+            // 'programas' => $programas,
+        ]);
+    }
 }
