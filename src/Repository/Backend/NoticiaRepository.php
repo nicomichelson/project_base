@@ -51,13 +51,17 @@ class NoticiaRepository extends ServiceEntityRepository
 
     public function findNoticiasDestacadas()
     {
-        $fecha_publicacion = date("Y-m-d");
+        /* obtengo fecha actual de publicacion */
+        $dtz = new \DateTimeZone("America/Argentina/Buenos_Aires");
+        $dt = new \DateTime("now", $dtz);
+        $fecha_publicacion = $dt->format("Y-m-d");
+       
         return $this->createQueryBuilder('n')
             ->andWhere('n.tipo_noticia = :tipo')
             ->andWhere('n.publicado = TRUE')
             ->andWhere('n.fecha_publicacion = :fecha_publicacion')
             ->setParameter('tipo', 'Destacada')
-            ->setParameter('fecha_publicacion', $fecha_publicacion)
+            ->setParameter('fecha_publicacion',$fecha_publicacion)
             ->getQuery()
             ->getResult()
         ;

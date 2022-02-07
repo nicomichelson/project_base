@@ -14,7 +14,7 @@ class MainController extends AbstractController
     public function index()
     {
         $noticias_destacadas = $this->getDoctrine()->getRepository(Noticia::class)->findNoticiasDestacadas();
-        // dump($noticias_destacadas);die;
+        // dump(date("Y-m-d"));die;
         return $this->render('front/index.html.twig',[
             'destacadas' => $noticias_destacadas,
         ]);
