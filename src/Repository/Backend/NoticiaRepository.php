@@ -62,4 +62,5 @@ class NoticiaRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
+    
 }

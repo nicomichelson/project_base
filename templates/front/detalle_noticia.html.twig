@@ -1,0 +1,108 @@
+{% extends "base.html.twig" %}
+
+{% block main %}
+
+     <main class="mainDetalleNoticia">
+            <section>
+                <div class="container">
+                    <div class="row justify-content-center align-items-center">
+                        <div class="col-md-10" >
+                            <article class="containerNoticias">
+                                <figure>
+                                    <img class="imgPosteoPrincipal" src="{{ vich_uploader_asset(noticia, 'imageFile')}}" alt="img-{{noticia.titulo}}">
+                                </figure>
+                                <div>
+                                    <div class="enlaceRedes justify-content-start align-items-start text-start">
+                                        <p>Compartir</p>
+                                        <a href="#"><img class="twitter" src="../img/twN.svg"alt="logo de twitter"></a>
+                                        <a href="#"><img  class="facebook" src="../img/fbN.svg" alt="logo de facebook"></a>
+                                        <a href="#"><img  class="instagram" src="../img/igN.svg" alt="logo de instagram"></a>
+                                        <a href="#"><img  class="correo" src="../img/correo.svg" alt="logo de email"></a>
+                                        <a href="#"><img  class="whatsapp" src="../img/whatsapp.svg" alt="logo de Whatsapp"></a>
+                                    </div>
+                                    <h2>{{noticia.titulo}}</h2>
+                                    <span>Con la clasificación asegurada, la "Albiceleste" sumó un partido más a la larga racha que ya lleva dos años y medio.</span>
+                                    <p>{{noticia.desarrollo}}</p>
+                                     
+                                    <div class=" text-center"><a href="../index.html"><button>Volver a inicio </button> </a></div>
+                                </div>
+                            </article>
+                            <div class="row">
+                                <h2>Otros Artículos</h2>
+                                <div class="col-md-4" >
+                                    <a href="./detalleNoticia2.html"><article class="containerNoticias">
+                                        <figure>
+                                            <img class="imgPosteoSecundario" src="../img/imgNoticia2.jpg" alt="img2">
+                                        </figure>
+                                        <div>
+                                            <h3>La Defensoría del Pueblo recibe reclamos de personas damnificadas por los cortes de energía y agua</h3>
+                                            </p>
+                                            <a href="./detalleNoticia2.html">Volver atrás</a>
+                                        </div>
+                                    </article></a>
+                                </div>
+                                <div class="col-md-4" >
+                                    <a href="./detalleNoticia3.html"><article class="containerNoticias">
+                                        <figure>
+                                            <img class="imgPosteoSecundario" src="../img/imgNoticia3.jpg" alt="img3">
+                                        </figure>
+                                        <div>
+                                            <h3>Argentinos, argentinas y residentes con esquema completo no deberán presentar PCR al ingresar al país</h3>
+                                            <a href="./detallesNoticia3.html">Ir a la noticia </a>
+                                        </div>
+                                    </article></a>
+                                </div>
+                                <div class="col-md-4" >
+                                    <a href="./detalleNoticia4.html"><article class="containerNoticias">
+                                        <figure>
+                                            <img class="imgPosteoSecundario" src="../img/imgNoticia4.jpg" alt="img4">
+                                        </figure>
+                                        <div>
+                                            <h3>El gobernador inauguró la obra de acceso al Puerto Las Palmas</h3>
+                                            <a href="./detalleNoticia4.html">Ir a la noticia </a>
+                                        </div>
+                                    </article></a>
+                                </div>
+                                <div class="col-md-4" >
+                                    <a href="./detalleNoticia5.html"><article class="containerNoticias">
+                                        <figure>
+                                            <img class="imgPosteoSecundario" src="../img/imgNoticia5.jpg" alt="img5">
+                                        </figure>
+                                        <div>
+                                            <h3>Continúa la campaña de vacunación contra el coronavirus en la provincia</h3>
+                                            </p>
+                                            <a href="./detalleNoticia5.html">Ir a la noticia </a>
+                                        </div>
+                                    </article></a>
+                                </div>
+                                <div class="col-md-4" >
+                                    <a href="./detalleNoticia2.html"><article class="containerNoticias">
+                                        <figure>
+                                            <img class="imgPosteoSecundario" src="../img/imgNoticia2.jpg" alt="img2">
+                                        </figure>
+                                        <div>
+                                            <h3>La Defensoría del Pueblo recibe reclamos de personas damnificadas por los cortes de energía y agua</h3>
+                                            </p>
+                                            <a href="./detalleNoticia2.html">Volver atrás</a>
+                                        </div>
+                                    </article></a>
+                                </div>
+                                <div class="col-md-4" >
+                                    <a href="./detalleNoticia3.html"><article class="containerNoticias">
+                                        <figure>
+                                            <img class="imgPosteoSecundario" src="../img/imgNoticia3.jpg" alt="img3">
+                                        </figure>
+                                        <div>
+                                            <h3>Argentinos, argentinas y residentes con esquema completo no deberán presentar PCR al ingresar al país</h3>
+                                            <a href="./detalleNoticia3.html">Ir a la noticia </a>
+                                        </div>
+                                    </article></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+{% endblock %}

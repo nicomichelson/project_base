@@ -11,11 +11,11 @@
                                 <div class="col-md-6" >
                                     <a href="./pages/detalleNoticia2.html"><article class="containerNoticias">
                                         <figure>
-                                            <img class="imgPosteoSecundario" src="{{ vich_uploader_asset(destacada, 'imageFile')}}" alt="img1">
+                                            <img class="imgPosteoSecundario" src="{{ vich_uploader_asset(destacada, 'imageFile')}}" alt="img-{{destacada.titulo}}">
                                         </figure>
                                         <div>
                                             <h3>{{destacada.titulo}}</h3>
-                                            <a href="./pages/detalleNoticia1.html">Ir a la noticia</a>
+                                            <a href="detalle-noticia/{{destacada.id}}">Ir a la noticia</a>
                                         </div>
                                     </article></a>
                                 </div>
