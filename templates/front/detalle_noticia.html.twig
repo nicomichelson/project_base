@@ -14,17 +14,17 @@
                                 <div>
                                     <div class="enlaceRedes justify-content-start align-items-start text-start">
                                         <p>Compartir</p>
-                                        <a href="#"><img class="twitter" src="../img/twN.svg"alt="logo de twitter"></a>
-                                        <a href="#"><img  class="facebook" src="../img/fbN.svg" alt="logo de facebook"></a>
-                                        <a href="#"><img  class="instagram" src="../img/igN.svg" alt="logo de instagram"></a>
-                                        <a href="#"><img  class="correo" src="../img/correo.svg" alt="logo de email"></a>
-                                        <a href="#"><img  class="whatsapp" src="../img/whatsapp.svg" alt="logo de Whatsapp"></a>
+                                        <a href="#"><img class="twitter" src="{{asset('build/img/twN.svg')}}"alt="logo de twitter"></a>
+                                        <a href="#"><img  class="facebook" src="{{asset('build/img/fbN.svg')}}" alt="logo de facebook"></a>
+                                        <a href="#"><img  class="instagram" src="{{asset('build/img/igN.svg')}}" alt="logo de instagram"></a>
+                                        <a href="#"><img  class="correo" src="{{asset('build/img/correo.svg')}}" alt="logo de email"></a>
+                                        <a href="#"><img  class="whatsapp" src="{{asset('build/img/whatsapp.svg')}}" alt="logo de Whatsapp"></a>
                                     </div>
                                     <h2>{{noticia.titulo}}</h2>
-                                    <span>Con la clasificación asegurada, la "Albiceleste" sumó un partido más a la larga racha que ya lleva dos años y medio.</span>
-                                    <p>{{noticia.desarrollo}}</p>
+                                    <span>{{noticia.bajada|raw}}</span>
+                                    <p>{{noticia.desarrollo|raw}}</p>
                                      
-                                    <div class=" text-center"><a href="../index.html"><button>Volver a inicio </button> </a></div>
+                                    <div class=" text-center"><a href="{{path('main_page')}}"><button>Volver a inicio </button> </a></div>
                                 </div>
                             </article>
                             <div class="row">

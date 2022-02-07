@@ -15,11 +15,15 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class NoticiaRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
+    public function __construct(ManagerRegistry $registry )
     {
         parent::__construct($registry, Noticia::class);
+      
     }
+   
 
+    /* obtengo fecha actual de publicacion */
+    
     // /**
     //  * @return Noticia[] Returns an array of Noticia objects
     //  */
@@ -51,7 +55,6 @@ class NoticiaRepository extends ServiceEntityRepository
 
     public function findNoticiasDestacadas()
     {
-        /* obtengo fecha actual de publicacion */
         $dtz = new \DateTimeZone("America/Argentina/Buenos_Aires");
         $dt = new \DateTime("now", $dtz);
         $fecha_publicacion = $dt->format("Y-m-d");

@@ -6,6 +6,7 @@
 parameters:
     app.path.noticia_images: /uploads/images/noticias
     app.path.documento_images: /uploads/images/documentos
+    app.path.programa_images: /uploads/images/programa
 
 services:
     # default configuration for services in *this* file

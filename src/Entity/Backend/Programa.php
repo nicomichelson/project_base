@@ -56,11 +56,7 @@ class Programa
      * @ORM\Column(type="boolean")
      */
     private $activo;
-
-    /**
-     * @ORM\Column(type="datetime_immutable", nullable=true)
-     */
-    private $updateAt;
+   
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
@@ -77,15 +73,23 @@ class Programa
      */
     private $orden;
 
-    /**
-     * @ORM\Column(type="datetime_immutable")
-     */
-    private $createdAt;
-
+   
     /**
      * @ORM\OneToMany(targetEntity=Capitulo::class, mappedBy="programa", cascade={"persist", "remove"})
      */
     private $capitulos;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $created_at;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $updated_at;
+
+    
 
     public function __construct()
     {
@@ -97,6 +101,13 @@ class Programa
             return 'NULL';
         }
         return $this->getTitulo();
+    }
+     /**
+     * @ORM\PrePersist
+     */
+    public function setCreatedAtValue()
+    {
+        $this->created_at = new \DateTime();
     }
 
     public function getId(): ?int
@@ -135,7 +146,7 @@ class Programa
         if ($image) {
             // It is required that at least one field changes if you are using doctrine
             // otherwise the event listeners won't be called and the file is lost
-            $this->updatedAt = new \DateTimeImmutable();
+            $this->updated_at = new \DateTime();
         }
 
         return $this;
@@ -170,17 +181,6 @@ class Programa
         return $this;
     }
 
-    public function getUpdateAt(): ?\DateTimeImmutable
-    {
-        return $this->updateAt;
-    }
-
-    public function setUpdateAt(?\DateTimeImmutable $updateAt): self
-    {
-        $this->updateAt = $updateAt;
-
-        return $this;
-    }
 
     public function getFechaModificacion(): ?\DateTimeInterface
     {
@@ -217,18 +217,7 @@ class Programa
 
         return $this;
     }
-
-    public function getCreatedAt(): ?\DateTimeImmutable
-    {
-        return $this->createdAt;
-    }
-
-    public function setCreatedAt(\DateTimeImmutable $createdAt): self
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
+   
 
     /**
      * @return Collection|Capitulo[]
@@ -256,6 +245,30 @@ class Programa
                 $capitulo->setPrograma(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->created_at;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $created_at): self
+    {
+        $this->created_at = $created_at;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updated_at;
+    }
+
+    public function setUpdatedAt(\DateTimeInterface $updated_at): self
+    {
+        $this->updated_at = $updated_at;
 
         return $this;
     }

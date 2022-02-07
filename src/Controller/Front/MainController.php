@@ -5,6 +5,7 @@ namespace App\Controller\Front;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Backend\Noticia;
+use App\Entity\Backend\Programa;
 
 class MainController extends AbstractController
 {
@@ -14,9 +15,11 @@ class MainController extends AbstractController
     public function index()
     {
         $noticias_destacadas = $this->getDoctrine()->getRepository(Noticia::class)->findNoticiasDestacadas();
+        $programas = $this->getDoctrine()->getRepository(Programa::class)->findBy(['activo' => TRUE]);
         // dump(date("Y-m-d"));die;
         return $this->render('front/index.html.twig',[
             'destacadas' => $noticias_destacadas,
+            'programas' => $programas,
         ]);
     }
 
@@ -31,4 +34,6 @@ class MainController extends AbstractController
             'noticia' => $detalle_noticia
         ]);
     }
+
+    
 }
