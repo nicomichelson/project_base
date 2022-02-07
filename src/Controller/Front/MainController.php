@@ -35,5 +35,11 @@ class MainController extends AbstractController
         ]);
     }
 
-    
+    public function getAllProgramas()
+    {
+        $programas = $this->getDoctrine()->getRepository(Programa::class)->findBy(['activo' => TRUE]);
+        return $this->render('front/_programas.html.twig',[
+            'programas' => $programas,
+        ]);
+    }
 }
